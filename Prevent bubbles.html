@@ -1,0 +1,78 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8" />
+	<title>Document</title>
+	<style type="text/css">
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		.box{
+			width: 200px;
+			margin: 200px auto;
+		}
+		.d1{
+			width: 200px;
+			height: 200px;
+			background-color: brown;
+		}
+		.d2{
+			width: 100px;
+			height: 100px;
+			margin: 30px auto;
+			background-color: aquamarine;
+		}
+		.d3{
+			width: 50px;
+			height: 50px;
+			margin: 10px auto;
+			background-color: royalblue;
+		}
+	</style>
+	<script src="jquery-1.10.1.min.js" type="text/javascript" charset="utf-8"></script>	
+</head>
+<body>
+	<div class="box">		
+		<div class="d1">
+			d1
+			<div class="d2">
+				d2
+				<div class="d3">d3</div>
+			</div>
+		</div>		
+	</div>
+</body>
+</html>
+
+<script>
+	
+	$(function () {
+		
+		$(".d1").click(function () {
+			alert("d1");
+		});
+		
+		$(".d2").click(function () {
+			preventBubble(); //阻止冒泡事件调用（写在事件中）
+			alert("d2");
+		});
+		
+		$(".d3").click(function () {
+			preventBubble(); //阻止冒泡阻止冒泡事件调用（写在事件中）
+			alert("d3");
+		});
+		
+		//阻止冒泡事件（写在js中）(兼容IE、火狐和谷歌)
+		function preventBubble (event) {  
+			var e=arguments.callee.caller.arguments[0]||event; 
+			if (e && e.stopPropagation) {  
+				e.stopPropagation();  
+			} else if (window.event) {  
+				window.event.cancelBubble = true;  
+			}  
+		}				
+			
+	})
+	
+</script>
