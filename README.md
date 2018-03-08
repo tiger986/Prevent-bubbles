@@ -30,9 +30,9 @@ $(".d3").click(function () {
 //Prevent bubble events (written in JS) (compatible with IE, Firefox, and Google)
 function preventBubble (event) {  
     var e=arguments.callee.caller.arguments[0]||event; 
-	if (e && e.stopPropagation) {  
-	    e.stopPropagation();  
-	} else if (window.event) {  
-	    window.event.cancelBubble = true;  
-	}  
+    if (e && e.stopPropagation) {  
+	e.stopPropagation();  
+    } else if (window.event) {  
+	window.event.cancelBubble = true;  
+    }  
 }
